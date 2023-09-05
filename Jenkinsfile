@@ -55,7 +55,7 @@ pipeline {
                     path: '',
                     url: 'http://23.101.158.243:8088/'
                 )],
-                contextPath: 'JODproject',
+                contextPath: 'DEVOPS-final-Project',
                 onFailure: 'false',
                 war: '**/*.war'
             }
