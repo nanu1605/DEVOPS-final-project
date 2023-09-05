@@ -33,7 +33,7 @@ pipeline {
             steps {
                 // Get some code from a GitHub repository
                 git branch: 'main',
-                    url: 'https://gitlab.com/nanu1605/pipelines-java.git'
+                    url: 'https://github.com/nanu1605/DEVOPS-final-project.git'
             }
         }
         stage('Build') {
