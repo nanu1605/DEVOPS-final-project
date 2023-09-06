@@ -98,7 +98,6 @@
                             out.println("<p>Error: Division by zero</p>");
                         }
                     }
-                    
                     out.println("Result: " + result);
                 }
             %>
