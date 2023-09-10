@@ -66,5 +66,23 @@ pipeline {
                 }
             }
         }
+        stage('Build Docker Image') {
+            steps {
+                script {
+                    // Build the Docker image from the Dockerfile
+                    sh 'docker build -t over1lord/finalimg .'
+                }
+            }
+        }
+        stage('Publish to Docker Hub') {
+            steps {
+                script {
+                    docker.withRegistry('https://registry.hub.docker.com', 'dockerhub') {
+                        // Push the Docker image to Docker Hub
+                        docker.image('over1lord/finalimg').push()
+                    }
+                }
+            }
+        }
     }
 }
