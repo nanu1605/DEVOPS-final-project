@@ -70,7 +70,7 @@ pipeline {
             steps {
                 script {
                     // Build the Docker image from the Dockerfile
-                    sh 'docker build -t over1lord/finalimg .'
+                    sh 'docker build -t tanishq010/finalimg .'
                 }
             }
         }
@@ -79,7 +79,7 @@ pipeline {
                 script {
                     docker.withRegistry('https://registry.hub.docker.com', 'dockerhub') {
                         // Push the Docker image to Docker Hub
-                        docker.image('over1lord/finalimg').push()
+                        docker.image('tanishq010/finalimg').push()
                     }
                 }
             }
