@@ -53,7 +53,7 @@ pipeline {
                 deploy adapters: [tomcat9 (
                     credentialsId: 'tom-gui-admin',
                     path: '',
-                    url: 'http://23.101.158.243:8088/'
+                    url: 'http://20.213.8.51:8088/'
                 )],
                 contextPath: 'DEVOPS-final-Project',
                 onFailure: 'false',
