@@ -47,15 +47,16 @@ pipeline {
                 sh "mvn install"
             }
         }
-        stage('SCM') {
-    checkout scm
-  }
-  stage('SonarQube Analysis') {
-    def mvn = tool 'Default Maven';
-    withSonarQubeEnv() {
-      sh "${mvn}/bin/mvn clean verify sonar:sonar -Dsonar.projectKey=project"
-    }
-  }
+        stage('SonarQube Analysis') {
+            steps {
+                script {
+                  def mvn = tool 'M3'
+                  withSonarQubeEnv() {
+                    sh "${mvn}/bin/mvn clean verify sonar:sonar -Dsonar.projectKey=project"
+                  }
+              }
+          }
+      }            
         stage ('Deploy') {
             steps {
                 echo "Deploying"
