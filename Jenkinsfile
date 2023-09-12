@@ -13,7 +13,7 @@
 //                 script {
 //                   def mvn = tool 'M3'
 //                   withSonarQubeEnv() {
-//                     sh "${mvn}/bin/mvn clean verify sonar:sonar -Dsonar.projectKey=java"
+//                     sh "${mvn}/bin/mvn clean verify sonar:sonar -Dsonar.projectKey=calculator"
 //                   }
 //               }
 //           }
@@ -46,6 +46,16 @@ pipeline {
             steps {
                 sh "mvn install"
             }
+        }
+        stage('SonarQube Analysis') {
+            steps {
+                script {
+                  def mvn = tool 'M3'
+                  withSonarQubeEnv() {
+                    sh "${mvn}/bin/mvn clean verify sonar:sonar -Dsonar.projectKey=calculator"
+                  }
+              }
+          }
         }
         stage ('Deploy') {
             steps {
